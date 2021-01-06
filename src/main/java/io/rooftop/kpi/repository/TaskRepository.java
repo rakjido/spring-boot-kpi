@@ -10,4 +10,5 @@ public interface TaskRepository extends JpaRepository<Task, Long> {
 
     @Query("SELECT t FROM Task t ORDER BY t.id DESC")
     List<Task> findAllDesc();
+
 }

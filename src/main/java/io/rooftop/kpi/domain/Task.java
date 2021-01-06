@@ -20,10 +20,10 @@ public class Task {
     @Enumerated(EnumType.STRING)
     private TaskType taskType;
 
-    @Enumerated(EnumType.STRING)
+    @Enumerated(EnumType.ORDINAL)
     private LevelStatus impactStatus;
 
-    @Enumerated(EnumType.STRING)
+    @Enumerated(EnumType.ORDINAL)
     private LevelStatus complexityStatus;
 
     @Column(nullable = true)

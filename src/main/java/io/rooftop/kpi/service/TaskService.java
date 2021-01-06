@@ -1,6 +1,7 @@
 package io.rooftop.kpi.service;
 
 import io.rooftop.kpi.domain.Task;
+import io.rooftop.kpi.repository.QueryTaskRepository;
 import io.rooftop.kpi.repository.TaskRepository;
 import io.rooftop.kpi.web.dto.TaskListResponseDto;
 import io.rooftop.kpi.web.dto.TaskResponseDto;
@@ -19,6 +20,7 @@ import java.util.stream.Collectors;
 public class TaskService {
 
     private final TaskRepository taskRepository;
+    private final QueryTaskRepository queryTaskRepository;
 
     @Transactional
     public Long saveTask(TaskSaveRequestDto requestDto) {
@@ -50,6 +52,13 @@ public class TaskService {
 
     public List<TaskListResponseDto> findAllTasksDesc() {
         return taskRepository.findAllDesc().stream()
+                .map(TaskListResponseDto::new)
+                .collect(Collectors.toList());
+    }
+
+    public List<TaskListResponseDto> findAllByImpactComplexity() {
+        Long kpiId = queryTaskRepository.findKpiId();
+        return queryTaskRepository.findAllbyImpactCompexity(kpiId).stream()
                 .map(TaskListResponseDto::new)
                 .collect(Collectors.toList());
     }

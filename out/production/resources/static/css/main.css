@@ -49,3 +49,40 @@ h2 {
 .th-wide {
     width: 65%;
 }
+
+.div-form{
+    margin: 50px 10%;
+    padding: 50px;
+    border: 1px solid white;
+}
+
+.form-group {
+    margin: 10px 0px;
+}
+
+.btn-kpi {
+    background: black;
+    color: white;
+}
+
+.btn-kpi:hover {
+    color: white;
+    transform: scale(0.97);
+}
+
+@media (max-width: 576px) {
+    .div-form {
+        margin: 20px 1%;
+        padding: 20px;
+        border: 1px solid white;
+    }
+}
+
+@media (max-width: 1000px) {
+    .div-form {
+        margin: 20px 2%;
+        padding: 20px;
+        border: 1px solid white;
+    }
+
+}

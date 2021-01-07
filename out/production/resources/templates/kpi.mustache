@@ -1,21 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KPI</title>
+{{>layout/header}}
 
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
-    <script src="/js/bootstrap.bundle.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-    <!-- google font -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,900;1,900&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="/css/main.css">
-</head>
-<body>
     <div class="container">
         <h1>KPI</h1>
         <hr>
@@ -117,82 +101,5 @@
         </div>
 
     </div>
-</body>
-    <script>
-        // $(document).ready(function() {
-        //    taskList();
-        // });
 
-        // $('#createTask').click(function(){
-        //     createTask();
-        // });
-
-        // function taskList() {
-        //     $.ajax (
-        //         {
-        //             type: "GET",
-        //             url: '/api/tasks/list',
-        //             success: function(data) {
-        //                 createTable(data);
-        //             }   
-        //         }
-        //     );
-        // }
-
-        // function createTable(data){
-        //     $('#kpi-result').empty();
-        //     var opr="<table class='table'><thead><tr>"+
-        //         "<th class='th-wide' scope='col'>Task</th>"+
-        //         "<th scope='col'>Impact</th>"+
-        //         "<th scope='col'>Complextiy</th>"+
-        //         "<th scope='col'>isDone</th>"+
-        //         "<th scope='col'>Edit</th>"+
-        //         "</tr></thead><tbody>";
-        //     $.each(data,function(index,task){
-        //         opr += "<tr><td>"+task.taskName+
-        //         "</td><td>"+task.impactStatus+
-        //         "</td><td>"+task.complexityStatus+
-        //         "</td><td>"+task.isFinished+
-        //         "</td><td><input type='button' onclick='updateTask(this)' value='수정' class ='update' value2="+task.id+
-        //         "></td><td><input type='button' value='삭제' value2="+task.id+" onclick='deleteTask(this)'></td></tr>";
-        //     });
-        //     opr+="<tr><td colspan='10'><input type='button' onclick='createTask(this)' value='추가'></td></tr></tbody></table>";
-        //     $('#kpi-result').append(opr);
-        // };
-
-        // // function createTable(data){
-        // //     $('#kpi-result').empty();
-        // //     var opr="<table class='table'><thead><tr>"+
-        // //         "<th class='th-wide' scope='col'>Task</th>"+
-        // //         "<th scope='col'>Impact</th>"+
-        // //         "<th scope='col'>Complextiy</th>"+
-        // //         "<th scope='col'>isDone</th>"+
-        // //         "<th scope='col'>Edit</th>"+
-        // //         "</tr></thead><tbody>";
-        // //     $.each(data,function(index,task){
-        // //         opr += "<tr><td>"+task.taskName+
-        // //         "</td><td>"+task.impactStatus+
-        // //         "</td><td>"+task.complexityStatus+
-        // //         "</td><td>"+task.isFinished+
-        // //         "</td><td><input type='button' onclick='updateTask(this)' value='수정' class ='update' value2="+task.id+
-        // //         "></td><td><input type='button' value='삭제' value2="+task.id+" onclick='deleteTask(this)'></td></tr>";
-        // //     });
-        // //     opr+="<tr><td colspan='10'><input type='button' onclick='createTask(this)' value='추가'></td></tr></tbody></table>";
-        // //     $('#kpi-result').append(opr);
-        // // };
-
-        // function updateTask() {
-        //     alert("update");
-        // }
-
-        // function deleteTask() {
-        //     alert("delete");
-        // }
-
-        // function createTask() {
-        //     alert("create");
-        // }
-
-        
-    </script>
-</html>
+{{>layout/footer}}

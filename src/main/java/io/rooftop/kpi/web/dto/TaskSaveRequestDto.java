@@ -1,5 +1,6 @@
 package io.rooftop.kpi.web.dto;
 
+import io.rooftop.kpi.domain.Kpi;
 import io.rooftop.kpi.domain.LevelStatus;
 import io.rooftop.kpi.domain.Task;
 import io.rooftop.kpi.domain.TaskType;
@@ -21,6 +22,8 @@ public class TaskSaveRequestDto {
 
     private String remarks;
 
+    private Kpi kpi;
+
     public Task toEntity() {
         return Task.builder()
                 .taskName(taskName)
@@ -30,5 +33,16 @@ public class TaskSaveRequestDto {
                 .complexityStatus(complexityStatus)
                 .remarks(remarks)
                 .build();
+    }
+
+    @Override
+    public String toString() {
+        return "TaskSaveRequestDto{" +
+                "taskName='" + taskName + '\'' +
+                ", isFinished=" + isFinished +
+                ", taskType=" + taskType +
+                ", impactStatus=" + impactStatus +
+                ", complexityStatus=" + complexityStatus +
+                '}';
     }
 }

@@ -1,0 +1,126 @@
+
+</body>
+
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script>
+
+        var main = {
+            init : function () {
+                var _this = this;
+                $('#btn-save').on('click', function () {
+                   _this.save();
+                });
+
+                $('#btn-update').on('click', function () {
+                    _this.update();
+                });
+
+                $('#btn-delete').on('click', function () {
+                    _this.delete();
+                });
+            },    
+            save: function() {
+                var data = {
+                    taskName: $('#taskName').val(),
+                    taskType: $('#taskType option:selected').val(),
+                    impactStatus: $('#impactStatus option:selected').val(),
+                    complexityStatus: $('#complexityStatus option:selected').val(),
+                    isFinished: $("input:checkbox[id='isFinished']").is(":checked")
+                };
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/api/tasks',
+                    dataType: 'json',
+                    contentType: 'application/json; charset=utf-8',
+                    data: JSON.stringify(data)
+                }).done(function() {
+                    alert("Task is on board!");
+                    window.location.href = '/';
+                }).fail(function(error){
+                    alert(JSON.stringify(error))
+                });
+            }
+        }
+
+        main.init();
+
+        // $(document).ready(function() {
+        //    taskList();
+        // });
+
+        // $('#createTask').click(function(){
+        //     createTask();
+        // });
+
+        // function taskList() {
+        //     $.ajax (
+        //         {
+        //             type: "GET",
+        //             url: '/api/tasks/list',
+        //             success: function(data) {
+        //                 createTable(data);
+        //             }
+        //         }
+        //     );
+        // }
+
+        // function createTable(data){
+        //     $('#kpi-result').empty();
+        //     var opr="<table class='table'><thead><tr>"+
+        //         "<th class='th-wide' scope='col'>Task</th>"+
+        //         "<th scope='col'>Impact</th>"+
+        //         "<th scope='col'>Complextiy</th>"+
+        //         "<th scope='col'>isDone</th>"+
+        //         "<th scope='col'>Edit</th>"+
+        //         "</tr></thead><tbody>";
+        //     $.each(data,function(index,task){
+        //         opr += "<tr><td>"+task.taskName+
+        //         "</td><td>"+task.impactStatus+
+        //         "</td><td>"+task.complexityStatus+
+        //         "</td><td>"+task.isFinished+
+        //         "</td><td><input type='button' onclick='updateTask(this)' value='수정' class ='update' value2="+task.id+
+        //         "></td><td><input type='button' value='삭제' value2="+task.id+" onclick='deleteTask(this)'></td></tr>";
+        //     });
+        //     opr+="<tr><td colspan='10'><input type='button' onclick='createTask(this)' value='추가'></td></tr></tbody></table>";
+        //     $('#kpi-result').append(opr);
+        // };
+
+        // // function createTable(data){
+        // //     $('#kpi-result').empty();
+        // //     var opr="<table class='table'><thead><tr>"+
+        // //         "<th class='th-wide' scope='col'>Task</th>"+
+        // //         "<th scope='col'>Impact</th>"+
+        // //         "<th scope='col'>Complextiy</th>"+
+        // //         "<th scope='col'>isDone</th>"+
+        // //         "<th scope='col'>Edit</th>"+
+        // //         "</tr></thead><tbody>";
+        // //     $.each(data,function(index,task){
+        // //         opr += "<tr><td>"+task.taskName+
+        // //         "</td><td>"+task.impactStatus+
+        // //         "</td><td>"+task.complexityStatus+
+        // //         "</td><td>"+task.isFinished+
+        // //         "</td><td><input type='button' onclick='updateTask(this)' value='수정' class ='update' value2="+task.id+
+        // //         "></td><td><input type='button' value='삭제' value2="+task.id+" onclick='deleteTask(this)'></td></tr>";
+        // //     });
+        // //     opr+="<tr><td colspan='10'><input type='button' onclick='createTask(this)' value='추가'></td></tr></tbody></table>";
+        // //     $('#kpi-result').append(opr);
+        // // };
+
+        // function updateTask() {
+        //     alert("update");
+        // }
+
+        // function deleteTask() {
+        //     alert("delete");
+        // }
+
+        // function createTask() {
+        //     alert("create");
+        // }
+
+
+    </script>
+</html>

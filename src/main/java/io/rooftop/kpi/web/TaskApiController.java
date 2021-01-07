@@ -19,6 +19,7 @@ public class TaskApiController {
 
     @PostMapping("/api/tasks")
     public Long save(@RequestBody TaskSaveRequestDto requestDto) {
+        System.out.println("requestDto = " + requestDto);
         return taskService.saveTask(requestDto);
     }
 

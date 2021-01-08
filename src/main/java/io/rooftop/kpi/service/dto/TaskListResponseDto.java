@@ -1,9 +1,8 @@
-package io.rooftop.kpi.web.dto;
+package io.rooftop.kpi.service.dto;
 
 import io.rooftop.kpi.domain.LevelStatus;
 import io.rooftop.kpi.domain.Task;
 import io.rooftop.kpi.domain.TaskType;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

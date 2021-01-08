@@ -19,7 +19,7 @@ public class QueryTaskRepository {
 
     private final JPAQueryFactory query;
 
-    public Long findKpiId() {
+    public Long findLatestKpiId() {
         QKpi kpi = QKpi.kpi;
         return query.select(kpi.id)
                 .from(kpi)

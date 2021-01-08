@@ -4,7 +4,7 @@
         <h1>KPI</h1>
         <hr>
         <div class="period">
-            <p>2021.01.04 ~ 2021.01.10</p><a href=""><img src="/img/plus.png" class="icon-img" alt="plus"></a>
+            <p>{{kpi.fromDate}} ~ {{kpi.toDate}}</p><a href=""><img src="/img/plus.png" class="icon-img" alt="plus"></a>
         </div>
         <div class="section">
             <div class="article">
@@ -28,63 +28,12 @@
                             <td>{{isFinished}}</td>
                             <td>
                                 <a href="/kpi/update/{{id}}"><img src="/img/right-arrow.png" class="icon-img-sub" alt="edit"></a>
-                                <a href=""><img src="/img/minus.png" class="icon-img-sub" alt="minus"></a>
+                                <a href="/kpi/delete/{{id}}" id="btn-delete"><img src="/img/minus.png" class="icon-img-sub" alt="minus"></a>
                             </td>
                         </tr>
                         {{/tasks}}
                     </tbody>
                 </table>
-
-                <!-- ============================================================================= -->
-                <!-- <table class="table">
-                    <thead>
-                        <tr>
-                            <th class="th-wide" scope="col">Task</th>
-                            <th scope="col">Impact</th>
-                            <th scope="col">Complexity</th>
-                            <th scope="col">isDone</th>
-                            <th scope="col">Edit</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>In-Peson Demo</td>
-                            <td>High</td>
-                            <td>Medium</td>
-                            <td>False</td>
-                            <td>
-                                <a href=""><img src="/img/right-arrow.png" class="icon-img-sub" alt="edit"></a>
-                                <a href=""><img src="/img/minus.png" class="icon-img-sub" alt="minus"></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Add chat widget</td>
-                            <td>Medium</td>
-                            <td>Low</td>
-                            <td>False</td>
-                            <td>
-                                <a href=""><img src="/img/right-arrow.png" class="icon-img-sub" alt="edit"></a>
-                                <a href=""><img src="/img/minus.png" class="icon-img-sub" alt="minus"></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Cold email 100 potential users</td>
-                            <td>Low</td>
-                            <td>Low</td>
-                            <td>True</td>
-                            <td>
-                                <a href=""><img src="/img/right-arrow.png" class="icon-img-sub" alt="edit"></a>
-                                <a href=""><img src="/img/minus.png" class="icon-img-sub" alt="minus"></a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table> -->
-                <!-- ============================================================================= -->
-                <div clas="div-result">
-                    <span id="kpi-result"></span>
-                </div>
-                <!-- ============================================================================= -->
-
             </div>
             <div class="article">
                 <h2>Active Users</h2><a href=""><img src="/img/plus.png" class="icon-img" alt="plus"></a>

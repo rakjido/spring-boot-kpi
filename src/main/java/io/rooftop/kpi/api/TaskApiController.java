@@ -1,11 +1,10 @@
-package io.rooftop.kpi.web;
+package io.rooftop.kpi.api;
 
-import io.rooftop.kpi.repository.QueryTaskRepository;
 import io.rooftop.kpi.service.TaskService;
-import io.rooftop.kpi.web.dto.TaskListResponseDto;
-import io.rooftop.kpi.web.dto.TaskResponseDto;
-import io.rooftop.kpi.web.dto.TaskSaveRequestDto;
-import io.rooftop.kpi.web.dto.TaskUpdateRequestDto;
+import io.rooftop.kpi.service.dto.TaskListResponseDto;
+import io.rooftop.kpi.service.dto.TaskResponseDto;
+import io.rooftop.kpi.service.dto.TaskSaveRequestDto;
+import io.rooftop.kpi.service.dto.TaskUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,7 +18,6 @@ public class TaskApiController {
 
     @PostMapping("/api/tasks")
     public Long save(@RequestBody TaskSaveRequestDto requestDto) {
-        System.out.println("requestDto = " + requestDto);
         return taskService.saveTask(requestDto);
     }
 

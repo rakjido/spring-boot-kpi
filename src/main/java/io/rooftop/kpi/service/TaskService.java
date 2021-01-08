@@ -1,17 +1,17 @@
 package io.rooftop.kpi.service;
 
+import io.rooftop.kpi.domain.Kpi;
 import io.rooftop.kpi.domain.Task;
+import io.rooftop.kpi.repository.KpiRepository;
 import io.rooftop.kpi.repository.QueryTaskRepository;
 import io.rooftop.kpi.repository.TaskRepository;
-import io.rooftop.kpi.web.dto.TaskListResponseDto;
-import io.rooftop.kpi.web.dto.TaskResponseDto;
-import io.rooftop.kpi.web.dto.TaskSaveRequestDto;
-import io.rooftop.kpi.web.dto.TaskUpdateRequestDto;
+import io.rooftop.kpi.service.dto.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
@@ -20,13 +20,18 @@ import java.util.stream.Collectors;
 public class TaskService {
 
     private final TaskRepository taskRepository;
+    private final KpiRepository kpiRepository;
     private final QueryTaskRepository queryTaskRepository;
 
     @Transactional
     public Long saveTask(TaskSaveRequestDto requestDto) {
-        return taskRepository.save(requestDto.toEntity()).getId();
+        Task task = requestDto.toEntity();
+        Long kpiId = requestDto.getKpiId();
+        Kpi kpi = kpiRepository.findById(kpiId)
+                .orElseThrow(() -> new IllegalArgumentException("There's no kpi id :" + kpiId));
+        task.setKpi(kpi);
+        return taskRepository.save(task).getId();
     }
-
 
     @Transactional
     public Long updateTask(Long taskId, TaskUpdateRequestDto requestDto) {
@@ -50,6 +55,12 @@ public class TaskService {
         return new TaskResponseDto(task);
     }
 
+    public TaskResponseMustacheDto findTaskByIdReturnMustache(Long taskId) {
+        Task task = taskRepository.findById(taskId)
+                .orElseThrow(() -> new IllegalArgumentException("There's no taks id :" + taskId));
+        return new TaskResponseMustacheDto(task);
+    }
+
     public List<TaskListResponseDto> findAllTasksDesc() {
         return taskRepository.findAllDesc().stream()
                 .map(TaskListResponseDto::new)
@@ -57,7 +68,7 @@ public class TaskService {
     }
 
     public List<TaskListResponseDto> findAllByImpactComplexity() {
-        Long kpiId = queryTaskRepository.findKpiId();
+        Long kpiId = queryTaskRepository.findLatestKpiId();
         return queryTaskRepository.findAllbyImpactCompexity(kpiId).stream()
                 .map(TaskListResponseDto::new)
                 .collect(Collectors.toList());

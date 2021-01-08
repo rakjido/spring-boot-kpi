@@ -1,4 +1,4 @@
-package io.rooftop.kpi.web.dto;
+package io.rooftop.kpi.service.dto;
 
 import io.rooftop.kpi.domain.LevelStatus;
 import io.rooftop.kpi.domain.TaskType;

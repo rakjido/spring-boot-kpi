@@ -1,4 +1,4 @@
-package io.rooftop.kpi.web.dto;
+package io.rooftop.kpi.service.dto;
 
 import io.rooftop.kpi.domain.Kpi;
 import io.rooftop.kpi.domain.LevelStatus;
@@ -22,7 +22,7 @@ public class TaskSaveRequestDto {
 
     private String remarks;
 
-    private Kpi kpi;
+    private Long kpiId;
 
     public Task toEntity() {
         return Task.builder()

@@ -1,10 +1,60 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    <h1>Task update</h1>
-</body>
-</html>
+{{>layout/header}}
+
+<div class="container">
+    <h1>KPI</h1>
+    <hr>
+    <div class="period">
+        <p>{{kpi.fromDate}} ~ {{kpi.toDate}}</p><a href=""><img src="/img/plus.png" class="icon-img" alt="plus"></a>
+    </div>
+
+    <div class="section">
+        <div class="div-form row">
+            <form>
+                <div class="form-group">
+                    <label for="taskName">Task Name</label>
+                    <input type="text" class="form-control" name="taskName" id="taskName" value="{{task.taskName}}" placeholder="What's your important task?">
+                </div>
+                <div class="form-group">
+                    <label for="taskType">Task Type</label><br>
+                    <select class="form-control" name="taskType" id="taskType">
+                        <option name="taskType" value="Revenue" selected>Revenue</option>
+                        <option name="taskType" value="ActiveUsers">Active Users</option>
+                        <option name="taskType" value="UserFeedback">User Feedback</option>
+                        <option name="taskType" value="Production">Build Product</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="impactStatus">Impact</label><br>
+                    <select class="form-control" name="impactStatus" id="impactStatus">
+                        <option name="impactStatus" value="High" {{#task.isImpactStatusHigh}}selected{{/task.isImpactStatusHigh}}>High</option>
+                        <option name="impactStatus" value="Medium" {{#task.isImpactStatusMedium}}selected{{/task.isImpactStatusMedium}}>Medium</option>
+                        <option name="impactStatus" value="Low" {{#task.isImpactStatusLow}}selected{{/task.isImpactStatusLow}}>Low</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="complexityStatus">Complexity</label><br>
+                    <select class="form-control" name="complexityStatus" id="complexityStatus">
+                        <option name="complexityStatus" value="High" {{#task.isComplexityStatusHigh}}selected{{/task.isComplexityStatusHigh}}>High</option>
+                        <option name="complexityStatus" value="Medium" {{#task.isComplexityStatusMedium}}selected{{/task.isComplexityStatusMedium}}>Medium</option>
+                        <option name="complexityStatus" value="Low" {{#task.isComplexityStatusLow}}selected{{/task.isComplexityStatusLow}}>Low</option>
+                    </select>
+                </div>
+
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" name="isFinished" id="isFinished" {{#task.isFinished}}checked{{/task.isFinished}}>
+                    <label class="form-check-label" for="isFinished">is Finished</label>
+                </div>
+                <input type="hidden" name="taskId" value="{{task.id}}">
+                <input type="hidden" name="kpi" value="{{kpi.id}}">
+                <hr>
+                <button type="button" class="btn btn-kpi" id="btn-update">Update</button>
+                <button type="button" class="btn btn-kpi" id="btn-delete">Delete</button>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+{{>layout/footer}}

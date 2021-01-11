@@ -1,4 +1,4 @@
-var agile_kpi = {
+var agile_kpi_task = {
     init : function () {
         var _this = this;
         $('#btn-save').on('click', function () {
@@ -78,4 +78,35 @@ var agile_kpi = {
 
 }
 
-agile_kpi.init();
+agile_kpi_task.init();
+
+// ============================================================
+
+var agile_kpi_kpi = {
+    init : function () {
+        var _this = this;
+        $('#btn-kpi-save').on('click', function () {
+           _this.save();
+        });
+    },
+    save: function() {
+        var data = {
+            fromDate: $( "#from_datepicker" ).val(),
+            toDate: $( "#to_datepicker" ).val(),
+        };
+
+        $.ajax({
+            type: 'POST',
+            url: '/api/kpi',
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8',
+            data: JSON.stringify(data)
+        }).done(function() {
+            location.reload();
+        }).fail(function(error){
+            alert(JSON.stringify(error))
+        });
+    }
+}
+
+agile_kpi_kpi.init();

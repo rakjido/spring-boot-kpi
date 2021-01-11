@@ -9,7 +9,7 @@ import javax.persistence.*;
 @Entity
 public class Task {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="task_id")
     private Long id;
 

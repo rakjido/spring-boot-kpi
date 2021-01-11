@@ -1,6 +1,5 @@
-package io.rooftop.agile.web;
+package io.rooftop.kpi.web;
 
-import io.rooftop.kpi.web.HelloController;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -32,6 +32,10 @@ h2 {
     display: flex;
 }
 
+.period-set {
+    margin: 30px;
+}
+
 .icon-img {
     width: 50px;
     padding-bottom: 20px;

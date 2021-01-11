@@ -1,14 +1,25 @@
 {{>layout/header}}
 
+
     <div class="container">
         <h1>KPI</h1>
         <hr>
         <div class="period">
             <p>{{kpi.fromDate}} ~ {{kpi.toDate}}</p><a href=""><img src="/img/plus.png" class="icon-img" alt="plus"></a>
         </div>
+        <div class="period-set">
+            <form>
+                <p><input type="text" name="fromDate" id="from_datepicker" placeholder="From"></p>
+                <p><input type="text" name="toDate" id="to_datepicker" placeholder="To"></p>
+                <button class="btn btn-kpi" id="btn-kpi-save">Save</button>
+                <button class="btn btn-kpi" id="btn-kpi-cancel">Cancel</button>
+            </form>
+        </div>
+
         <div class="section">
             <div class="article">
                 <h2>Revenue</h2><a href="/kpi/save"><img src="/img/plus.png" id="createTask" class="icon-img" alt="plus"></a>
+                {{#tasks}}
                 <table class="table">
                     <thead>
                         <tr>
@@ -20,7 +31,6 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {{#tasks}}
                         <tr>
                             <td>{{taskName}}</td>
                             <td>{{impactStatus}}</td>
@@ -31,9 +41,9 @@
                                 <a href="/kpi/delete/{{id}}" id="btn-delete"><img src="/img/minus.png" class="icon-img-sub" alt="minus"></a>
                             </td>
                         </tr>
-                        {{/tasks}}
                     </tbody>
                 </table>
+                {{/tasks}}
             </div>
             <div class="article">
                 <h2>Active Users</h2><a href=""><img src="/img/plus.png" class="icon-img" alt="plus"></a>

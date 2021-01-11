@@ -1,6 +1,5 @@
-package io.rooftop.agile.domain;
+package io.rooftop.kpi.domain;
 
-import io.rooftop.kpi.domain.LevelStatus;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
 

@@ -4,6 +4,7 @@ import io.rooftop.kpi.domain.Kpi;
 import io.rooftop.kpi.repository.KpiRepository;
 import io.rooftop.kpi.repository.QueryTaskRepository;
 import io.rooftop.kpi.service.dto.KpiResponseDto;
+import io.rooftop.kpi.service.dto.KpiSaveRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,6 +20,11 @@ public class KpiService {
 
     private final KpiRepository kpiRepository;
     private final QueryTaskRepository queryTaskRepository;
+
+    @Transactional
+    public Long saveKpi(KpiSaveRequestDto requestDto) {
+        return kpiRepository.save(requestDto.toEntity()).getId();
+    }
 
     public KpiResponseDto findKpiById(Long kpiId){
         Kpi kpi = kpiRepository.findById(kpiId)

@@ -15,7 +15,7 @@ import java.util.List;
 public class Kpi {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "kpi_id")
     private Long id;
 

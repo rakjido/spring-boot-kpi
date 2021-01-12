@@ -33,7 +33,9 @@ h2 {
 }
 
 .period-set {
-    margin: 30px;
+    margin-top: 0px;
+    margin-left: 50px;
+    margin-bottom: 50px;
 }
 
 .icon-img {
@@ -69,10 +71,22 @@ h2 {
     color: white;
 }
 
+.btn-kpi-sub {
+    background: #ffb468;
+    color: black;
+    border: 1px solid white;
+}
+
 .btn-kpi:hover {
     color: white;
     transform: scale(0.97);
 }
+
+.btn-kpi-sub:hover {
+    color: black;
+    transform: scale(0.97);
+}
+
 
 @media (max-width: 576px) {
     .div-form {

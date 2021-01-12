@@ -20,10 +20,8 @@ public class HelloControllerTest {
 
     @Test
     public void test_hello() throws Exception {
-        String hello = "hello";
 
-        mvc.perform(get("/hello"))
-                .andExpect(status().isOk())
-                .andExpect(content().string(hello));
+        mvc.perform(get("/"))
+                .andExpect(status().is(302));
     }
 }

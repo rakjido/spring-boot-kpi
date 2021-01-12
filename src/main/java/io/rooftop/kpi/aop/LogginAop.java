@@ -16,7 +16,8 @@ class LoggingAop {
 
 //    @Pointcut(value="execution(* io.rooftop.kpi.*.*.*(..))")
 //    @Pointcut(value="execution(* io.rooftop.kpi.web.KpiController.*(..))")
-    @Pointcut(value="execution(* io.rooftop.kpi.web.*.*(..))")
+//    @Pointcut(value="execution(* io.rooftop.kpi.web.*.*(..))")
+    @Pointcut("execution(* io.rooftop.kpi.web.*.*(..)) || execution(* io.rooftop.kpi.api.*.*(..))")
     public void configPointcut() {
 
     }

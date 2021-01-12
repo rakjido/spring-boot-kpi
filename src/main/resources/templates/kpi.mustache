@@ -1,25 +1,55 @@
 {{>layout/header}}
 
+<style>
+    .accordion {
+      background-color: #ffb468;;
+      color: #444;
+      cursor: pointer;
+      padding: 18px;
+      width: 100%;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 15px;
+      transition: 0.4s;
+    }
 
-    <div class="container">
+    .accordion:active {
+      border: none;
+    }
+
+    .panel {
+      padding: 0 18px;
+      display: none;
+      background-color: #ffb468;;
+      overflow: hidden;
+    }
+    </style>
+    
+
+<div class="container">
         <h1>KPI</h1>
         <hr>
-        <div class="period">
-            <p>{{kpi.fromDate}} ~ {{kpi.toDate}}</p><a href=""><img src="/img/plus.png" class="icon-img" alt="plus"></a>
+
+        <div class="accordion"><p class="period">{{kpi.fromDate}} ~ {{kpi.toDate}}<img src="/img/plus.png" id="createKpi" class="icon-img" alt="plus"></p></div>
+        
+        <div class="panel">
+            <div class="period-set">
+                <span id="period-set">
+                    <form>
+                        <p><input type="text" name="fromDate" id="from_datepicker" placeholder="From"></p>
+                        <p><input type="text" name="toDate" id="to_datepicker" placeholder="To"></p>
+                        <button class="btn btn-kpi" id="btn-kpi-save">Save</button>
+                        <button type="reset" class="btn btn-kpi-sub">Cancel</button>
+                    </form>
+                </span>
+            </div>
         </div>
-        <div class="period-set">
-            <form>
-                <p><input type="text" name="fromDate" id="from_datepicker" placeholder="From"></p>
-                <p><input type="text" name="toDate" id="to_datepicker" placeholder="To"></p>
-                <button class="btn btn-kpi" id="btn-kpi-save">Save</button>
-                <button class="btn btn-kpi" id="btn-kpi-cancel">Cancel</button>
-            </form>
-        </div>
+        
 
         <div class="section">
             <div class="article">
                 <h2>Revenue</h2><a href="/kpi/save"><img src="/img/plus.png" id="createTask" class="icon-img" alt="plus"></a>
-                {{#tasks}}
                 <table class="table">
                     <thead>
                         <tr>
@@ -31,6 +61,7 @@
                         </tr>
                     </thead>
                     <tbody>
+                        {{#tasks}}
                         <tr>
                             <td>{{taskName}}</td>
                             <td>{{impactStatus}}</td>
@@ -41,9 +72,9 @@
                                 <a href="/kpi/delete/{{id}}" id="btn-delete"><img src="/img/minus.png" class="icon-img-sub" alt="minus"></a>
                             </td>
                         </tr>
+                        {{/tasks}}
                     </tbody>
                 </table>
-                {{/tasks}}
             </div>
             <div class="article">
                 <h2>Active Users</h2><a href=""><img src="/img/plus.png" class="icon-img" alt="plus"></a>
@@ -61,4 +92,21 @@
 
     </div>
 
+    <script>
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+        
+        for (i = 0; i < acc.length; i++) {
+          acc[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+              panel.style.display = "none";
+            } else {
+              panel.style.display = "block";
+            }
+          });
+        }
+        </script>
+        
 {{>layout/footer}}

@@ -85,10 +85,24 @@ agile_kpi_task.init();
 var agile_kpi_kpi = {
     init : function () {
         var _this = this;
+        // $('#createKpi').on('click', function () {
+        //     _this.create();
+        //  });
         $('#btn-kpi-save').on('click', function () {
            _this.save();
         });
     },
+    // create: function() {
+    //     var form = "";
+    //     form += "<form>";
+    //     form += "<p><input type='text' name='fromDate' id='from_datepicker' placeholder='From'></p>";
+    //     form += "<p><input type='text' name='toDate' id='to_datepicker' placeholder='To'></p>";
+    //     form += "<button class='btn btn-kpi' id='btn-kpi-save'>Save</button>";
+    //     form += "<button class='btn btn-kpi-sub' id='btn-kpi-cancel'>Cancel</button>";
+    //     form += "</form>";
+    //     $( "#period-set" ).append(form);
+    // },
+
     save: function() {
         var data = {
             fromDate: $( "#from_datepicker" ).val(),
@@ -102,9 +116,9 @@ var agile_kpi_kpi = {
             contentType: 'application/json; charset=utf-8',
             data: JSON.stringify(data)
         }).done(function() {
-            alert("saved");
-            location.reload();
-//            window.location.href = '/';
+            alert("period saved");
+            window.location.href = '/';
+            // location.reload();
         }).fail(function(error){
             alert(JSON.stringify(error))
         });

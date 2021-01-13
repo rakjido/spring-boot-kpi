@@ -90,6 +90,7 @@ var agile_kpi_kpi = {
         //  });
         $('#btn-kpi-save').on('click', function () {
            _this.save();
+           return false;
         });
     },
     // create: function() {
@@ -116,7 +117,6 @@ var agile_kpi_kpi = {
             contentType: 'application/json; charset=utf-8',
             data: JSON.stringify(data)
         }).done(function() {
-            alert("period saved");
             //window.location.href = '/';
             location.reload();
         }).fail(function(error){

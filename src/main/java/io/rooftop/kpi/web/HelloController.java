@@ -1,18 +1,12 @@
 package io.rooftop.kpi.web;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.servlet.view.RedirectView;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 public class HelloController {
-//    @GetMapping("/")
-//    public RedirectView hello() {
-//        return new RedirectView("/kpi");
-//    }
-    @GetMapping("/")
-    public String hello() {
-        return "redirect:/kpi";
+    @GetMapping("/api/helloworld")
+    public String helloworld() {
+        return "HelloWorld";
     }
-
 }

@@ -3,25 +3,49 @@ package io.rooftop.kpi.web;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MockMvcBuilder;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.assertj.core.api.Assertions.assertThat;
+
 
 @RunWith(SpringRunner.class)
-@WebMvcTest(controllers = HelloController.class)
+@SpringBootTest
 public class HelloControllerTest {
 
     @Autowired
-    private MockMvc mvc;
+    private HelloController helloController;
+
+    private MockMvc mockMvc;
 
     @Test
-    public void test_hello() throws Exception {
+    public void HelloWorld() throws Exception {
+        // Given
 
-        mvc.perform(get("/"))
-                .andExpect(status().is(302));
+        // When
+
+        // Then
+        assertThat(helloController.helloworld()).isEqualTo("HelloWorld");
     }
+
+    @Test
+    public void mockMvcTest() throws Exception {
+        // Given
+        mockMvc = MockMvcBuilders.standaloneSetup(helloController).build();
+        // When
+        mockMvc.perform(
+                MockMvcRequestBuilders.get("/api/helloworld")
+        ).andDo(MockMvcResultHandlers.print())
+        .andExpect(MockMvcResultMatchers.status().isOk())
+        .andExpect(MockMvcResultMatchers.content().string("HelloWorld"));
+
+        // Then
+    }
+
 }

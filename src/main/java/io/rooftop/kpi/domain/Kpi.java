@@ -1,5 +1,6 @@
 package io.rooftop.kpi.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,6 +24,7 @@ public class Kpi {
 
     private LocalDate toDate;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "kpi", cascade = CascadeType.ALL)
     private List<Task> tasks = new ArrayList<>();
 

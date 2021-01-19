@@ -4,6 +4,7 @@ import io.rooftop.kpi.domain.LevelStatus;
 import io.rooftop.kpi.domain.Task;
 import io.rooftop.kpi.domain.TaskType;
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,23 @@ public class TaskRepositoryTest {
     public void cleanUp() {
         taskRepository.deleteAll();
     }
+
+    @Test
+    public void save_테스트() throws Exception {
+        // Given
+        Task savedTask = taskRepository.save(Task.builder()
+                .taskName("test")
+                .taskType(TaskType.Revenue)
+                .impactStatus(LevelStatus.High)
+                .complexityStatus(LevelStatus.Medium)
+                .build());
+
+        // When
+
+        // Then
+        Assert.assertNotNull(savedTask);
+    }
+
 
     @Test
     public void findById_테스트()  throws Exception {

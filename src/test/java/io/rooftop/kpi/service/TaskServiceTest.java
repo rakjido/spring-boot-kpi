@@ -35,7 +35,7 @@ public class TaskServiceTest {
     }
 
     @Test
-    public void findTaskById_테스트() throws Exception {
+    public void findTaskById_test() throws Exception {
         // Given
         Task task = Task.builder()
                 .taskName("test mock")

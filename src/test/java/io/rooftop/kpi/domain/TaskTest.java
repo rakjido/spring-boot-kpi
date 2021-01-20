@@ -7,7 +7,7 @@ import org.junit.Test;
 public class TaskTest {
 
     @Test
-    public void Task테스트() throws Exception {
+    public void create_task_test() throws Exception {
         // Given
         String taskName = "KPI application";
 

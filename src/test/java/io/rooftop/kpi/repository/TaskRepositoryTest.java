@@ -28,7 +28,7 @@ public class TaskRepositoryTest {
     }
 
     @Test
-    public void save_테스트() throws Exception {
+    public void save_test() throws Exception {
         // Given
         Task savedTask = taskRepository.save(Task.builder()
                 .taskName("test")
@@ -45,7 +45,7 @@ public class TaskRepositoryTest {
 
 
     @Test
-    public void findById_테스트()  throws Exception {
+    public void findById_test()  throws Exception {
         // Given
         Task savedTask = taskRepository.save(Task.builder()
                 .taskName("test")
@@ -56,7 +56,7 @@ public class TaskRepositoryTest {
         // When
         Task findTask = taskRepository.findById(savedTask.getId()).get();
 
-        
+
         // Then
         assertThat(findTask.getTaskName()).isEqualTo("test");
         assertThat(findTask.getImpactStatus()).isEqualTo(LevelStatus.High);

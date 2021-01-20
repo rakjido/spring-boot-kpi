@@ -8,7 +8,7 @@ import java.time.LocalDate;
 public class PeriodTest {
 
     @Test
-    public void Kpi생성() throws Exception {
+    public void Period_Create_Test() throws Exception {
         // Given
         LocalDate fromDate = LocalDate.of(2020, 11, 23);
         LocalDate toDate = LocalDate.of(2020, 12, 01);

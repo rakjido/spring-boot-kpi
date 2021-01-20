@@ -7,7 +7,7 @@ import org.junit.Test;
 public class LevelStatusTest {
 
     @Test
-    public void LevelStatus_테스트() throws Exception {
+    public void LevelStatus_Test() throws Exception {
         // Given
         LevelStatus levelStatus = LevelStatus.High;
 

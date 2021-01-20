@@ -30,11 +30,11 @@ public class Task {
     private String remarks;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="kpi_id")
-    private Kpi kpi;
+    @JoinColumn(name="period_id")
+    private Period period;
 
-    public void setKpi(Kpi kpi) {
-        this.kpi = kpi;
+    public void setPeriod(Period period) {
+        this.period = period;
     }
 
     @Builder

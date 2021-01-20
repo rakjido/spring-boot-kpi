@@ -4,7 +4,7 @@
         <h1>KPI</h1>
         <hr>
         <div class="period">
-            <p>{{kpi.fromDate}} ~ {{kpi.toDate}}</p><a href=""><img src="/img/plus.png" class="icon-img" alt="plus"></a>
+            <p>{{period.fromDate}} ~ {{period.toDate}}</p><a href=""><img src="/img/plus.png" class="icon-img" alt="plus"></a>
         </div>
 
         <div class="section">
@@ -46,7 +46,7 @@
                         <input type="checkbox" class="form-check-input" name="isFinished" id="isFinished">
                         <label class="form-check-label" for="isFinished">is Finished</label>
                     </div>
-                    <input type="hidden" name="kpi" value="{{kpi.id}}">
+                    <input type="hidden" name="period" value="{{period.id}}">
                     <hr>
                     <button type="button" class="btn btn-kpi" id="btn-save">Submit</button>
                 </form>

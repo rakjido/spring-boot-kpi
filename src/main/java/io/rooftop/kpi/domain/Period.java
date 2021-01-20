@@ -13,11 +13,11 @@ import java.util.List;
 @Getter
 @NoArgsConstructor
 @Entity
-public class Kpi {
+public class Period {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "kpi_id")
+    @Column(name = "period_id")
     private Long id;
 
     private LocalDate fromDate;
@@ -25,11 +25,11 @@ public class Kpi {
     private LocalDate toDate;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "kpi", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "period", cascade = CascadeType.ALL)
     private List<Task> tasks = new ArrayList<>();
 
     @Builder
-    public Kpi(Long id, LocalDate fromDate, LocalDate toDate) {
+    public Period(Long id, LocalDate fromDate, LocalDate toDate) {
         this.id = id;
         this.fromDate = fromDate;
         this.toDate = toDate;
@@ -37,6 +37,6 @@ public class Kpi {
 
     public void addTask(Task task) {
         this.tasks.add(task);
-        task.setKpi(this);
+        task.setPeriod(this);
     }
 }

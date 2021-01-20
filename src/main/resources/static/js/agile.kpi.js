@@ -21,7 +21,7 @@ var agile_kpi_task = {
             impactStatus: $('#impactStatus option:selected').val(),
             complexityStatus: $('#complexityStatus option:selected').val(),
             isFinished: $("input:checkbox[id='isFinished']").is(":checked"),
-            kpiId: $('input[name=kpi]').val()
+            periodId: $('input[name=period]').val()
         };
 
         $.ajax({
@@ -82,13 +82,13 @@ agile_kpi_task.init();
 
 // ============================================================
 
-var agile_kpi_kpi = {
+var agile_kpi_period = {
     init : function () {
         var _this = this;
         // $('#createKpi').on('click', function () {
         //     _this.create();
         //  });
-        $('#btn-kpi-save').on('click', function () {
+        $('#btn-period-save').on('click', function () {
            _this.save();
            return false;
         });
@@ -112,7 +112,7 @@ var agile_kpi_kpi = {
 
         $.ajax({
             type: 'POST',
-            url: '/api/kpi',
+            url: '/api/period',
             dataType: 'json',
             contentType: 'application/json; charset=utf-8',
             data: JSON.stringify(data)
@@ -125,4 +125,6 @@ var agile_kpi_kpi = {
     }
 }
 
-agile_kpi_kpi.init();
+agile_kpi_period.init();
+
+

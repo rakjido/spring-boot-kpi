@@ -1,8 +1,8 @@
 package io.rooftop.kpi.service;
 
-import io.rooftop.kpi.domain.Kpi;
+import io.rooftop.kpi.domain.Period;
 import io.rooftop.kpi.domain.Task;
-import io.rooftop.kpi.repository.KpiRepository;
+import io.rooftop.kpi.repository.PeriodRepository;
 import io.rooftop.kpi.repository.QueryTaskRepository;
 import io.rooftop.kpi.repository.TaskRepository;
 import io.rooftop.kpi.service.dto.*;
@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
@@ -20,16 +19,16 @@ import java.util.stream.Collectors;
 public class TaskService {
 
     private final TaskRepository taskRepository;
-    private final KpiRepository kpiRepository;
+    private final PeriodRepository periodRepository;
     private final QueryTaskRepository queryTaskRepository;
 
     @Transactional
     public Long saveTask(TaskSaveRequestDto requestDto) {
         Task task = requestDto.toEntity();
-        Long kpiId = requestDto.getKpiId();
-        Kpi kpi = kpiRepository.findById(kpiId)
+        Long kpiId = requestDto.getPeriodId();
+        Period period = periodRepository.findById(kpiId)
                 .orElseThrow(() -> new IllegalArgumentException("There's no kpi id :" + kpiId));
-        task.setKpi(kpi);
+        task.setPeriod(period);
         return taskRepository.save(task).getId();
     }
 
@@ -68,7 +67,7 @@ public class TaskService {
     }
 
     public List<TaskListResponseDto> findAllByImpactComplexity() {
-        Long kpiId = queryTaskRepository.findLatestKpiId();
+        Long kpiId = queryTaskRepository.findLatestperiodId();
         return queryTaskRepository.findAllbyImpactCompexity(kpiId).stream()
                 .map(TaskListResponseDto::new)
                 .collect(Collectors.toList());

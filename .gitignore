@@ -26,6 +26,8 @@ hs_err_pid*
 .gradle
 build
 
+initDb.java
+
 application-oauth.properties
 application-real-db.properties
 application.properties.back

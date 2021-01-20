@@ -1,6 +1,6 @@
 package io.rooftop.kpi.service.dto;
 
-import io.rooftop.kpi.domain.Kpi;
+import io.rooftop.kpi.domain.Period;
 import io.rooftop.kpi.domain.LevelStatus;
 import io.rooftop.kpi.domain.Task;
 import io.rooftop.kpi.domain.TaskType;
@@ -31,7 +31,7 @@ public class TaskResponseMustacheDto {
 
     private String remarks;
 
-    private Kpi kpi;
+    private Period period;
 
     @Builder
     public TaskResponseMustacheDto(Task task) {
@@ -40,7 +40,7 @@ public class TaskResponseMustacheDto {
         this.isFinished = task.getIsFinished();
         this.taskType = task.getTaskType();
         this.remarks = task.getRemarks();
-        this.kpi = task.getKpi();
+        this.period = task.getPeriod();
 
         this.isImpactStatusHigh = (task.getImpactStatus().equals(LevelStatus.High)) ? true : false;
         this.isImpactStatusMedium = (task.getImpactStatus().equals(LevelStatus.Medium)) ? true : false;

@@ -10,22 +10,42 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
     <script>
-      $( "#from_datepicker" ).datepicker({
-        dateFormat: "yy-mm-dd"
-      });
-      $( "#to_datepicker" ).datepicker({
-        dateFormat: "yy-mm-dd"
-      });
+        // jquery calendar
 
-      $( function() {
-        $( "#from_datepicker" ).datepicker();
-        $( "#from_datepicker" ).on("change", function() {
-          var fromDate = $( "#from_datepicker" ).datepicker( "getDate" );
-          $( "#to_datepicker" ).datepicker( "setDate", "fromDate +7d" );
-        });
-      } );
+          $( "#from_datepicker" ).datepicker({
+            dateFormat: "yy-mm-dd"
+          });
+          $( "#to_datepicker" ).datepicker({
+            dateFormat: "yy-mm-dd"
+          });
+
+          $( function() {
+            $( "#from_datepicker" ).datepicker();
+            $( "#from_datepicker" ).on("change", function() {
+              var fromDate = $( "#from_datepicker" ).datepicker( "getDate" );
+              $( "#to_datepicker" ).datepicker( "setDate", "fromDate +7d" );
+            });
+          } );
+
+        // accordion
+
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+
+        for (i = 0; i < acc.length; i++) {
+          acc[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+              panel.style.display = "none";
+            } else {
+              panel.style.display = "block";
+            }
+          });
+        }
+
+
     </script>
-
-
 </html>

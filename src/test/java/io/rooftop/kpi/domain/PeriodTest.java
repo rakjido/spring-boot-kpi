@@ -5,7 +5,7 @@ import org.junit.Test;
 
 import java.time.LocalDate;
 
-public class KpiTest {
+public class PeriodTest {
 
     @Test
     public void Kpi생성() throws Exception {
@@ -22,21 +22,21 @@ public class KpiTest {
                         .build();
 
 
-        Kpi kpi = Kpi.builder()
+        Period period = Period.builder()
                         .id(2L)
                         .fromDate(fromDate)
                         .toDate(toDate)
                         .build();
 
-        kpi.addTask(task);
+        period.addTask(task);
 
         // Then
-        Assertions.assertThat(fromDate).isEqualTo(kpi.getFromDate());
-        Assertions.assertThat(toDate).isEqualTo(kpi.getToDate());
-        Assertions.assertThat(taskName).isEqualTo(kpi.getTasks().get(0).getTaskName());
-        Assertions.assertThat(TaskType.Production).isEqualTo(kpi.getTasks().get(0).getTaskType());
-        Assertions.assertThat(LevelStatus.High).isEqualTo(kpi.getTasks().get(0).getImpactStatus());
-        Assertions.assertThat(LevelStatus.Medium).isEqualTo(kpi.getTasks().get(0).getComplexityStatus());
+        Assertions.assertThat(fromDate).isEqualTo(period.getFromDate());
+        Assertions.assertThat(toDate).isEqualTo(period.getToDate());
+        Assertions.assertThat(taskName).isEqualTo(period.getTasks().get(0).getTaskName());
+        Assertions.assertThat(TaskType.Production).isEqualTo(period.getTasks().get(0).getTaskType());
+        Assertions.assertThat(LevelStatus.High).isEqualTo(period.getTasks().get(0).getImpactStatus());
+        Assertions.assertThat(LevelStatus.Medium).isEqualTo(period.getTasks().get(0).getComplexityStatus());
 
     }
 

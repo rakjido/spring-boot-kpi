@@ -47,15 +47,14 @@ public class TaskRepositoryTest {
     @Test
     public void findById_테스트()  throws Exception {
         // Given
-        taskRepository.save(Task.builder()
-                                .taskName("test")
-                                .taskType(TaskType.Revenue)
-                                .impactStatus(LevelStatus.High)
-                                .complexityStatus(LevelStatus.Medium)
-                                .build());
+        Task savedTask = taskRepository.save(Task.builder()
+                .taskName("test")
+                .taskType(TaskType.Revenue)
+                .impactStatus(LevelStatus.High)
+                .complexityStatus(LevelStatus.Medium)
+                .build());
         // When
-        // initDb.java에서 3개의 task를 입력하기 때문에 4L
-        Task findTask = taskRepository.findById(4L).get();
+        Task findTask = taskRepository.findById(savedTask.getId()).get();
 
         // Then
         assertThat(findTask.getTaskName()).isEqualTo("test");

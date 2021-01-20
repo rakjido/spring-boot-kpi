@@ -1,6 +1,6 @@
 package io.rooftop.kpi.config;
 
-import io.rooftop.kpi.domain.Kpi;
+import io.rooftop.kpi.domain.Period;
 import io.rooftop.kpi.domain.LevelStatus;
 import io.rooftop.kpi.domain.Task;
 import io.rooftop.kpi.domain.TaskType;
@@ -31,11 +31,11 @@ public class InitDb {
         private final EntityManager em;
 
         public void dbInit() {
-            Kpi kpi = Kpi.builder()
+            Period period = Period.builder()
                         .fromDate(LocalDate.of(2021, 1, 4))
                         .toDate(LocalDate.of(2021,1,10))
                         .build();
-            em.persist(kpi);
+            em.persist(period);
 
             Task task1 = Task.builder()
                             .taskName("In-Person Demo")
@@ -45,7 +45,7 @@ public class InitDb {
                             .isFinished(Boolean.FALSE)
                             .build();
             em.persist(task1);
-            kpi.addTask(task1);
+            period.addTask(task1);
 
             Task task2 = Task.builder()
                     .taskName("Add chat widget")
@@ -55,7 +55,7 @@ public class InitDb {
                     .isFinished(Boolean.FALSE)
                     .build();
             em.persist(task2);
-            kpi.addTask(task2);
+            period.addTask(task2);
 
             Task task3 = Task.builder()
                     .taskName("Cold email for 100 potential users")
@@ -65,7 +65,7 @@ public class InitDb {
                     .isFinished(Boolean.FALSE)
                     .build();
             em.persist(task3);
-            kpi.addTask(task3);
+            period.addTask(task3);
 
         }
     }

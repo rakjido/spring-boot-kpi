@@ -2,7 +2,7 @@ package io.rooftop.kpi.service;
 
 import io.rooftop.kpi.domain.LevelStatus;
 import io.rooftop.kpi.domain.Task;
-import io.rooftop.kpi.repository.KpiRepository;
+import io.rooftop.kpi.repository.PeriodRepository;
 import io.rooftop.kpi.repository.QueryTaskRepository;
 import io.rooftop.kpi.repository.TaskRepository;
 import io.rooftop.kpi.service.dto.TaskResponseDto;
@@ -10,8 +10,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-
-import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.BDDMockito.given;
@@ -23,7 +21,7 @@ public class TaskServiceTest {
     private TaskRepository taskRepository;
 
     @Mock
-    private KpiRepository kpiRepository;
+    private PeriodRepository periodRepository;
 
     @Mock
     private QueryTaskRepository queryTaskRepository;
@@ -33,7 +31,7 @@ public class TaskServiceTest {
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        taskService = new TaskService(taskRepository, kpiRepository, queryTaskRepository);
+        taskService = new TaskService(taskRepository, periodRepository, queryTaskRepository);
     }
 
     @Test

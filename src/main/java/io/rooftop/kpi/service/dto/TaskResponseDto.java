@@ -1,6 +1,6 @@
 package io.rooftop.kpi.service.dto;
 
-import io.rooftop.kpi.domain.Kpi;
+import io.rooftop.kpi.domain.Period;
 import io.rooftop.kpi.domain.LevelStatus;
 import io.rooftop.kpi.domain.Task;
 import io.rooftop.kpi.domain.TaskType;
@@ -28,7 +28,7 @@ public class TaskResponseDto {
 
     private String remarks;
 
-    private Kpi kpi;
+    private Period period;
 
     public TaskResponseDto(Task task) {
         this.id = task.getId();
@@ -38,6 +38,6 @@ public class TaskResponseDto {
         this.impactStatus = task.getImpactStatus();
         this.complexityStatus = task.getComplexityStatus();
         this.remarks = task.getRemarks();
-        this.kpi = task.getKpi();
+        this.period = task.getPeriod();
     }
 }

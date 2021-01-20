@@ -31,7 +31,7 @@
         <h1>KPI</h1>
         <hr>
 
-        <div class="accordion"><p class="period">{{kpi.fromDate}} ~ {{kpi.toDate}}<img src="/img/plus.png" id="createKpi" class="icon-img" alt="plus"></p></div>
+        <div class="accordion"><p class="period">{{period.fromDate}} ~ {{period.toDate}}<img src="/img/plus.png" id="createKpi" class="icon-img" alt="plus"></p></div>
         
         <div class="panel">
             <div class="period-set">
@@ -39,7 +39,7 @@
                     <form>
                         <p><input type="text" name="fromDate" id="from_datepicker" placeholder="From"></p>
                         <p><input type="text" name="toDate" id="to_datepicker" placeholder="To"></p>
-                        <button class="btn btn-kpi" id="btn-kpi-save">Save</button>
+                        <button class="btn btn-kpi" id="btn-period-save">Save</button>
                         <button type="reset" class="btn btn-kpi-sub">Cancel</button>
                     </form>
                 </span>
@@ -92,21 +92,4 @@
 
     </div>
 
-    <script>
-        var acc = document.getElementsByClassName("accordion");
-        var i;
-        
-        for (i = 0; i < acc.length; i++) {
-          acc[i].addEventListener("click", function() {
-            this.classList.toggle("active");
-            var panel = this.nextElementSibling;
-            if (panel.style.display === "block") {
-              panel.style.display = "none";
-            } else {
-              panel.style.display = "block";
-            }
-          });
-        }
-        </script>
-        
 {{>layout/footer}}

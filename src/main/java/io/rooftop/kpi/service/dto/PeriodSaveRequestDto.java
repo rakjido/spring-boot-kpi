@@ -1,7 +1,6 @@
 package io.rooftop.kpi.service.dto;
 
-import io.rooftop.kpi.domain.Kpi;
-import io.rooftop.kpi.domain.Task;
+import io.rooftop.kpi.domain.Period;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -10,12 +9,12 @@ import java.time.LocalDate;
 
 @NoArgsConstructor
 @Getter @Setter
-public class KpiSaveRequestDto {
+public class PeriodSaveRequestDto {
     private LocalDate fromDate;
     private LocalDate toDate;
 
-    public Kpi toEntity() {
-        return Kpi.builder()
+    public Period toEntity() {
+        return Period.builder()
                 .fromDate(fromDate)
                 .toDate(toDate)
                 .build();

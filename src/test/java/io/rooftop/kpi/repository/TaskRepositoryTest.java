@@ -56,6 +56,7 @@ public class TaskRepositoryTest {
         // When
         Task findTask = taskRepository.findById(savedTask.getId()).get();
 
+        
         // Then
         assertThat(findTask.getTaskName()).isEqualTo("test");
         assertThat(findTask.getImpactStatus()).isEqualTo(LevelStatus.High);

@@ -17,8 +17,6 @@ This simple application was inspired by 'How to Prioritize Your Time' in Y Combi
 * Depencencies : Web, Lombok, Devtools, JPA, H2, Mysql, Mustache, AOP
 ```
 
-<br>
-![spring-boot-kpi.png](https://github.com/rakjido/spring-boot-kpi/blob/master/doc/spring-boot-kpi.png)
 
 
 

@@ -1,8 +1,11 @@
 # spring-boot-kpi [![Build Status](https://travis-ci.org/rakjido/spring-boot-kpi.svg?branch=master)](https://travis-ci.org/rakjido/spring-boot-kpi)
 
+---
+
+This simple application was inspired by 'How to Prioritize Your Time' in Y Combinator's channel
+[https://www.youtube.com/watch?v=XcCmMOWuAF4](https://www.youtube.com/watch?v=XcCmMOWuAF4)
 
 
-### 01. Initial Setting
 
 ```
 * Project : Gradle Project
@@ -10,4 +13,5 @@
 * Spring boot : 2.1.7.RELEASE
 * Depencencies : Web, Lombok, Devtools, JPA, H2, Mysql, Mustache, AOP
 ```
+
 

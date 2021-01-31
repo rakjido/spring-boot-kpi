@@ -49,7 +49,7 @@ spring.datasource.password=password
 
 
 
-Run the applcation
+Run the application
 
 ```bash
 nohup java -jar -Dspring.config.location=application.properties agile-0.0.1-SNAPSHOT.jar &

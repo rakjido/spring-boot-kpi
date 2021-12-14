@@ -6,6 +6,8 @@ import io.rooftop.kpi.service.dto.TaskResponseDto;
 import io.rooftop.kpi.service.dto.TaskSaveRequestDto;
 import io.rooftop.kpi.service.dto.TaskUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,30 +19,30 @@ public class TaskApiController {
     private final TaskService taskService;
 
     @PostMapping("/api/tasks")
-    public Long save(@RequestBody TaskSaveRequestDto requestDto) {
-        return taskService.saveTask(requestDto);
+    public ResponseEntity<Long> save(@RequestBody TaskSaveRequestDto requestDto) {
+        return new ResponseEntity<>(taskService.saveTask(requestDto), HttpStatus.CREATED);
     }
 
     @PutMapping("/api/tasks/{id}")
-    public Long update(@PathVariable Long id, @RequestBody TaskUpdateRequestDto requestDto){
-        return taskService.updateTask(id, requestDto);
+    public ResponseEntity<Long> update(@PathVariable Long id, @RequestBody TaskUpdateRequestDto requestDto){
+        return new ResponseEntity<>(taskService.updateTask(id, requestDto), HttpStatus.OK);
     }
 
     @DeleteMapping("/api/tasks/{id}")
-    public Long delete(@PathVariable Long id) {
+    public ResponseEntity<Long> delete(@PathVariable Long id) {
         taskService.deleteTask(id);
-        return id;
+        return new ResponseEntity<>(id, HttpStatus.OK);
     }
 
     @GetMapping("/api/tasks/{id}")
-    public TaskResponseDto findById(@PathVariable Long id) {
-        return taskService.findTaskById(id);
+    public ResponseEntity<TaskResponseDto> findById(@PathVariable Long id) {
+        return new ResponseEntity<>(taskService.findTaskById(id),HttpStatus.OK);
     }
 
-    @GetMapping("/api/tasks/list")
-    public List<TaskListResponseDto> findAll() {
+    @GetMapping("/api/tasks")
+    public ResponseEntity<List<TaskListResponseDto>> findAll() {
 
-          return taskService.findAllByImpactComplexity();
+        return new ResponseEntity<>(taskService.findAllByImpactComplexity(), HttpStatus.OK);
 //        return taskService.findAllTasksDesc();
     }
 }

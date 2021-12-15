@@ -112,7 +112,7 @@ var agile_kpi_period = {
 
         $.ajax({
             type: 'POST',
-            url: '/api/period',
+            url: '/api/periods',
             dataType: 'json',
             contentType: 'application/json; charset=utf-8',
             data: JSON.stringify(data)
